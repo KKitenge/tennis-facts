@@ -24,24 +24,36 @@ var words = message.split(' ');
 //tie into countdown
 
 //Start button to begin the game
-document.getElementById("startbtn").addEventListener("click", function() {
+//document.getElementById("startbtn").addEventListener("click", function() {
+    //var timeLeft = 60;
+    //var downloadTimer = setInterval(function function1() {
+       // document.getElementById("countdown").innerHTML = timeLeft;
+
+       // timeLeft -=1;
+       // if(timeLeft <= 0){
+           // clearInterval(downloadTimer);
+           // document.getElementById("countdown").innerHTML;
+       // }
+       // }, 1000);
+
+       // console.log(countDown);
+//});
+
+//timer countdown from 60 seconds
+function countDown() {
+    document.getElementById("startbtn").addEventListener("click", function() {
     var timeLeft = 60;
     var downloadTimer = setInterval(function function1() {
         document.getElementById("countdown").innerHTML = timeLeft;
 
-        timeLeft-=1;
+        timeLeft -=1;
         if(timeLeft <= 0){
             clearInterval(downloadTimer);
-            document.getElementById("countdown").innerHTML
+            document.getElementById("countdown").innerHTML;
         }
         }, 1000);
-
         console.log(countDown);
-});
 
-//timer countdown from 60 seconds
-function countDown() {
-    var timeLeft = 60;
     //setInterval used to call function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {//if time left is greater than 1
@@ -55,8 +67,8 @@ function countDown() {
             clearInterval(timeInterval);
             displayMessage();
         }
-    }, 1000)
-}
+    }, 1000);
+})}
 
 function displayMessage() {
     var wordCount = 0;
@@ -72,3 +84,5 @@ function displayMessage() {
 }
 
 countDown();
+
+//
