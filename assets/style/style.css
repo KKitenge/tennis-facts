@@ -76,7 +76,13 @@ button {
     overflow: hidden;
 }
 
-
+input[type="button"] {
+    width: 500px;
+    height: 50px;
+    margin-top: 5px;
+    border-radius: 5px;
+    font-size: large;
+}
 
 footer {    
     width: 100%;
