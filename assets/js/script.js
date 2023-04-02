@@ -24,8 +24,20 @@ var words = message.split(' ');
 //tie into countdown
 
 //Start button to begin the game
+document.getElementById("startbtn").addEventListener("click", function() {
+    var timeLeft = 60;
+    var downloadTimer = setInterval(function function1() {
+        document.getElementById("countdown").innerHTML = timeLeft;
 
+        timeLeft-=1;
+        if(timeLeft <= 0){
+            clearInterval(downloadTimer);
+            document.getElementById("countdown").innerHTML
+        }
+        }, 1000);
 
+        console.log(countDown);
+});
 
 //timer countdown from 60 seconds
 function countDown() {
