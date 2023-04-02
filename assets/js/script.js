@@ -13,11 +13,18 @@ var userInput;
 var correct = 0;
 var wrong = 0;
 var timer = 60;
+//Questions
+var question = ["This player, aka the Goat, has won 23 grand slams", "Tennis is played on what type of surface?", ]
+
+
+
+
+
 
 var timerE1 = document.getElementById('countdown') 
 var mainE1 = document.getElementById('main')
-var message = 'Counting down from 60 seconds';
-var words = message.split(' ');
+//var message = 'Time is up!';
+//var words = message.split(' ');
 
 //Onclick for start button to begin game
 //connect to countdown with message about time left
@@ -75,14 +82,19 @@ function displayMessage() {
     var msgInterval = setInterval(function () {
         if (words[wordCount] === undefined) {
             clearInterval(msgInterval);
-            mainE1.textContent = "Time is up!";
+           mainE1.textContent = "Time is up!"; //duplication of var message
         } else {
             mainE1.textContent = words[wordCount];
             wordCount++;
         }
     }, 500);
+    timerReset();//need to reset the mesage and timer
 }
 
 countDown();
+
+function timerReset(){
+    document.getElementById("countdown").reset();
+}
 
 //
