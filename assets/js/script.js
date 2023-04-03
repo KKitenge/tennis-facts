@@ -9,17 +9,13 @@
     //When the game is over, final results are shown to the player
 
 
-var userInput;
+var userInput= document.getElementsByClassName('quizq')[0].value
 var answer;
 var correct;
 var wrong;
-var timer = 60;
+var timer;
 //Questions
-var question = ["This player, aka the Goat, has won 23 grand slams", "Tennis is played on what type of surface?", ]
-
-
-
-
+var question;
 
 
 var timerE1 = document.getElementById('countdown') 
@@ -63,19 +59,19 @@ function countDown() {
         console.log(countDown);
 
     //setInterval used to call function to be executed every 1000 milliseconds
-    var timeInterval = setInterval(function () {
-        if (timeLeft > 1) {//if time left is greater than 1
-            timerE1.textContent = timeLeft + " seconds remaining" //shows the time remaining
-            timeLeft--; //decreates time by 1
-            } else if (timeLeft === 1) { //if time left is equal to 1 shows second instead of seaconds
-            timerE1.textContent = timeLeft + " second remaining";
-            timeLeft--;
-            } else {
-            timerE1.textContent = ""; 
-            clearInterval(timeInterval);
-            displayMessage();
-        }
-    }, 1000);
+    //var timeInterval = setInterval(function () {
+        //if (timeLeft > 1) {//if time left is greater than 1
+           // timerE1.textContent = timeLeft + " seconds remaining" //shows the time remaining
+           // timeLeft--; //decreates time by 1
+           // } else if (timeLeft === 1) { //if time left is equal to 1 shows second instead of seaconds
+          // timerE1.textContent = timeLeft + " second remaining";
+           // timeLeft--;
+           // } else {
+           // timerE1.textContent = ""; 
+           // clearInterval(timeInterval);
+           // displayMessage();
+       // }
+   // }, 1000);
 })}
 
 function displayMessage() {
@@ -83,16 +79,15 @@ function displayMessage() {
     var msgInterval = setInterval(function () {
         if (words[wordCount] === undefined) {
             clearInterval(msgInterval);
-           mainE1.textContent = "Time is up!"; //duplication of var message
+           //mainE1.textContent = "Time is up!"; //duplication of var message
         } else {
             mainE1.textContent = words[wordCount];
             wordCount++;
         }
-    }, 500);
-    timerReset();//need to reset the message and timer
+    }, 1000);
 }
-
 countDown();
+timerReset()
 
 function timerReset(){
     document.getElementById("countdown").reset();
@@ -100,10 +95,14 @@ function timerReset(){
 
 //questions and answers- validatation
 function questionAnswer(){
-    if (userInput === "Serena"){
+    if (userInput === "Serena Williams"){
+        correct++;
         text = "Correct Answer";
     } else {
+        wrong++;
         text = "Wrong. The answer is Serena Williams";
     }
-    document.getElementById("quzibody").innerHTML = text;
-    }
+    document.getElementById("quizbody").innerHTML = text;
+    console.log(questionAnswer)
+}
+
