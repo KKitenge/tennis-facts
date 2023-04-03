@@ -9,24 +9,20 @@
     //When the game is over, final results are shown to the player
 
 
-var userInput = document.getElementsByClassName('tennisquiz')[0].value;
-var answer;
-var correct;
-var wrong;
+//var userInput;
+var correct = 0;
+var wrong = 0
+var questionid = 1; //need to know where in sequence of question
 var timer;
 //Questions
 //var question = document.querySelectorAll()
 
 
 
-var timerE1 = document.getElementById('countdown') 
-var mainE1 = document.getElementById('main')
+var timerE1 = document.getElementById('count') 
+var mainE1 = document.getElementById('countdown')
 //var message = 'Time is up!';
 //var words = message.split(' ');
-
-//Onclick for start button to begin game
-//connect to countdown with message about time left
-//tie into countdown
 
 //Start button to begin the game
 //document.getElementById("startbtn").addEventListener("click", function() {
@@ -49,38 +45,37 @@ function countDown(){
     document.getElementById("startbtn").addEventListener("click", function() {
     var timeLeft = 60;
     var downloadTimer = setInterval(function function1() {
-        document.getElementById("countdown").innerHTML = timeLeft;
+        document.getElementById("count").innerHTML = timeLeft;
 
         timeLeft -=1;
         if(timeLeft <= 0){
             clearInterval(downloadTimer);
-            document.getElementById("countdown").innerHTML;
+            document.getElementById("count").innerHTML;
         }
         }, 1000);
-        console.log(countDown);
 
     //setInterval used to call function to be executed every 1000 milliseconds
     //var timeInterval = setInterval(function () {
-        //if (timeLeft > 1) {//if time left is greater than 1
-           // timerE1.textContent = timeLeft + " seconds remaining" //shows the time remaining
-           // timeLeft--; //decreates time by 1
-           // } else if (timeLeft === 1) { //if time left is equal to 1 shows second instead of seaconds
-          // timerE1.textContent = timeLeft + " second remaining";
-           // timeLeft--;
-           // } else {
-           // timerE1.textContent = ""; 
-           // clearInterval(timeInterval);
-           // displayMessage();
-       // }
-   // }, 1000);
-})}
+        if (timeLeft > 1) {//if time left is greater than 1
+            timerE1.textContent = timeLeft + " seconds remaining" //shows the time remaining
+            timeLeft--; //decreates time by 1
+            } else if (timeLeft === 1) { //if time left is equal to 1 shows second instead of seaconds
+           timerE1.textContent = timeLeft + " second remaining";
+            timeLeft--;
+            } else {
+            timerE1.textContent = "Time is up - check your results"; 
+            clearInterval(timeInterval);
+            displayMessage();
+        }
+    }, 1000);
+}
 
 function displayMessage() {
     var wordCount = 0;
     var msgInterval = setInterval(function () {
         if (words[wordCount] === undefined) {
             clearInterval(msgInterval);
-           mainE1.textContent = "Time is up!"; //duplication of var message
+           mainE1.textContent = "Time is up - check your results"; //duplication of var message
         } else {
             mainE1.textContent = words[wordCount];
             wordCount++;
@@ -94,52 +89,52 @@ countDown();
 //}
 
 //questions and answers- validatation
-function questionAnswer(){
+function questionAnswer(event){
+    var userInput = event.target.value;
+    console.log(userInput);
     if (userInput === "Serena Williams"){
         correct++;
-        text = "Correct Answer";
     } else {
         wrong++;
-        text = "Wrong. The answer is Serena Williams";
-    }
-    document.getElementById("one").innerHTML = text;
+    } 
+    if (questionid == 1) hideShow("one", "two")//after one is clicked, it jumps to second div
 
     if (userInput === "Court"){
         correct++;
-        text = "Correct Answer";
     } else {
         wrong++;
-        text = "Wrong. The answer is Court";
     }
-    document.getElementById("two").innerHTML = text;
+    if (questionid == 2) hideShow("two", "three")
 
     if (userInput === "Australian Open"){
         correct++;
-        text = "Correct Answer";
     } else {
         wrong++;
-        text = "Wrong. The answer is Australian Open";
     }
-    document.getElementById("three").innerHTML = text;
+    if (questionid == 3) hideShow("three", "four")
 
     if (userInput === "Queens"){
         correct++;
-        text = "Correct Answer";
     } else {
         wrong++;
-        text = "Wrong. The answer is Queens";
     }
-    document.getElementById("four").innerHTML = text;
+    if (questionid == 4) hideShow("four", "five")
 
     if (userInput === "France, Lacoste shirt"){
         correct++;
-        text = "Correct Answer";
     } else {
         wrong++;
-        text = "Wrong. The answer is France, Lacoste shirt";
     }
-    document.getElementById("five").innerHTML = text;
+   
     }
-    console.log(questionAnswer)
-
-
+   
+// show the next div after a question is asnwered
+function hideShow(currentid, nextid) {
+    var currentContainer = document.getElementById(currentid);
+    currentContainer.hidden = true;
+    var nextContainer = document.getElementById(nextid);
+    nextContainer.hidden = false;
+    questionid++;
+    console.log(questionid)
+    //this function shows and hides the questions after a user answers
+}
