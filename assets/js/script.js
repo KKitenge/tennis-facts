@@ -10,8 +10,9 @@
 
 
 var userInput;
-var correct = 0;
-var wrong = 0;
+var answer;
+var correct;
+var wrong;
 var timer = 60;
 //Questions
 var question = ["This player, aka the Goat, has won 23 grand slams", "Tennis is played on what type of surface?", ]
@@ -88,7 +89,7 @@ function displayMessage() {
             wordCount++;
         }
     }, 500);
-    timerReset();//need to reset the mesage and timer
+    timerReset();//need to reset the message and timer
 }
 
 countDown();
@@ -97,4 +98,12 @@ function timerReset(){
     document.getElementById("countdown").reset();
 }
 
-//
+//questions and answers- validatation
+function questionAnswer(){
+    if (userInput === "Serena"){
+        text = "Correct Answer";
+    } else {
+        text = "Wrong. The answer is Serena Williams";
+    }
+    document.getElementById("quzibody").innerHTML = text;
+    }

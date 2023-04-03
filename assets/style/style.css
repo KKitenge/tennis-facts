@@ -59,20 +59,19 @@ button {
 
 #quizbody { 
     appearance: none;
-    border: darkslategrey;
     display: block;
+    justify-content: center;
     width:auto;
     padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 55px;
     text-align: center;
-    align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
     border: 2px solid darkslategrey;
     border-radius: 5px;
-    resize: none;
+    resize: inline;
     overflow: hidden;
 }
 
