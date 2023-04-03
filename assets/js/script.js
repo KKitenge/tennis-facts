@@ -18,7 +18,7 @@ var timerE1 = document.getElementById('count')
 var mainE1 = document.getElementById('countdown')
 var tennisQ = [
     {
-        question1:"This Legend, known as the GOAT, has won 23 Grand Slams." ,
+        question1:"This Legend, known as the GOAT, has won 23 Grand Slams.",
         answer1: "Martina Navratilova",
         answer2: "Steffi Graf",
         answer3: "Serena Williams",
@@ -27,16 +27,42 @@ var tennisQ = [
         correctA: "Serena Williams"
     },
     {
-        question1:"This Legend, known as the GOAT, has won 23 Grand Slams." ,
-        answer1: "Martina Navratilova",
-        answer2: "Steffi Graf",
-        answer3: "Serena Williams",
-        answer4: "Helen Wills Moody",
-        answer5: "Venus Williams",
-        correctA: "Serena Williams"  
+        question2:"Tennis is played on this type of surface:",
+        answer1: "Pitch",
+        answer2: "Court",
+        answer3: "Field",
+        answer4: "Track",
+        answer5: "Course",
+        correctA: "Court"  
+    },
+    {
+        question3:"This tournament is known as the Happy Slam:",
+        answer1: "Australian Open",
+        answer2: "French Open",
+        answer3: "Wimbledon",
+        answer4: "US Open",
+        answer5: "Miami",
+        correctA: "Australian Open"  
+    },
+    {
+        question4:"Where does the US Open take place in New York:",
+        answer1: "Brooklyn",
+        answer2: "The Bronx",
+        answer3: "Queens",
+        answer4: "Manhattan",
+        answer5: "Staten Island",
+        correctA: "Queens"  
+    },
+    {
+        question5:"Rene Lacoste, played for this country and was known for:",
+        answer1: "England, Nickname the Crocodile",
+        answer2: "France, Lacoste shirt",
+        answer3: "United States, Nickname the Rocket",
+        answer4: "Germany, winning the Grand Slam",
+        answer5: "Spain, the longest rank #1 period",
+        correctA: "QFrance, Lacoste shirt" 
     }
-
-]
+];
 
 //var message = 'Time is up!';
 //var words = message.split(' ');
