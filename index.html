@@ -17,23 +17,62 @@
         <div id="thirdheader"><h4>Take a swing</h4></div>
         
         <div id="timercountdown">
-            <button id="count" class="button">Time</button>
+            <div id="count"></div>
             <p id="countdown"></p>
-            <p id="main"></p>
         </div>
         
-        <section class="quizbox"></section>
-        <div id="quizbody">            
-            <h5>This Legend, known as the GOAT, has won 23 Grand Slams</h5>
-            <ul style="list-style-type:none;">
+    <section class="quizbox">
+        <div id="quizbody"> 
+            <form name="tennisquiz">
+            <div id="one">
+                <h5>This Legend, known as the GOAT, has won 23 Grand Slams:</h5>
+                <ul style="list-style-type:none;">
                 <li><input id="q1" type="button" name="Martina" value="Martina Navratilova" onclick="questionAnswer()"></li>
                 <li><input id="q1" type="button" name="Helen" value="Helen Wills Moody" onclick="questionAnswer()"></li>
                 <li><input id="q1" type="button" name="Serena" value="Serena Williams" onclick="questionAnswer()"></li>
                 <li><input id="q1" type="button" name="Steffi" value="Steffi Graf" onclick="questionAnswer()"></li>
-                <li><input id="q1" type="button" name="Venus" value="Venus Williams" onclick="questionAnswer()"></li>
-            </ul>               
+                <li><input id="q1" type="button" name="Venus" value="Venus Williams" onclick="questionAnswer()"></li></ul>
+            </div>
+            <div hidden id="two">
+                <h5>Tennis is played on what type of surface:</h5>
+                <ul style="list-style-type:none;">
+                <li><input id="q1" type="button" name="Pitch" value="Pitch" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="Court" value="Court" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="Track" value="Track" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="Field" value="Field" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="Course" value="Course" onclick="questionAnswer()"></li></ul>
+            </div>
+            <div hidden id="three">
+                <h5>This tournament is known as the Happy Slam:</h5>
+                <ul style="list-style-type:none;">
+                <li><input id="q1" type="button" name="Austrailian" value="Austrailian Open" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="French" value="French Open" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="Wimbledon" value="Wimbledon" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="US" value="US Open" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="Miami" value="VMiami" onclick="questionAnswer()"></li></ul>
+            </div>
+            <div hidden id="four">
+                <h5>Where does the US Open take place in New York:</h5>
+                <ul style="list-style-type:none;">
+                <li><input id="q1" type="button" name="Brooklyn" value="Brooklyn" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="Bronx" value="The Bronx" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="Queens" value="Queens" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="Manhattan" value="Manhattan" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="Staten" value="Staten Island" onclick="questionAnswer()"></li></ul>
+            </div>
+            <div hidden id="five">
+                <h5>Rene Lacoste, played for this country and is known for:</h5>
+                <ul style="list-style-type:none;">
+                <li><input id="q1" type="button" name="England" value="England, nickname 'the Crocodile'" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="France" value="France, Lacoste shirt" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="UStates" value="United States, nickname 'the Rocket'" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="Germany" value="Winning the Grand Slam" onclick="questionAnswer()"></li>
+                <li><input id="q1" type="button" name="Spain" value="The longest period ranked #1" onclick="questionAnswer()"></li></ul>
+            </div>
+            </form>
         </div>
         </section>
+    </section>
         <hr>
         <hr>
     </section>

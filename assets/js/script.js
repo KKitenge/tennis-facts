@@ -9,13 +9,14 @@
     //When the game is over, final results are shown to the player
 
 
-var userInput= document.getElementsByClassName('quizq')[0].value
+var userInput = document.getElementsByClassName('tennisquiz')[0].value;
 var answer;
 var correct;
 var wrong;
 var timer;
 //Questions
-var question;
+//var question = document.querySelectorAll()
+
 
 
 var timerE1 = document.getElementById('countdown') 
@@ -44,7 +45,7 @@ var mainE1 = document.getElementById('main')
 //});
 
 //timer countdown from 60 seconds
-function countDown() {
+function countDown(){
     document.getElementById("startbtn").addEventListener("click", function() {
     var timeLeft = 60;
     var downloadTimer = setInterval(function function1() {
@@ -79,7 +80,7 @@ function displayMessage() {
     var msgInterval = setInterval(function () {
         if (words[wordCount] === undefined) {
             clearInterval(msgInterval);
-           //mainE1.textContent = "Time is up!"; //duplication of var message
+           mainE1.textContent = "Time is up!"; //duplication of var message
         } else {
             mainE1.textContent = words[wordCount];
             wordCount++;
@@ -87,11 +88,10 @@ function displayMessage() {
     }, 1000);
 }
 countDown();
-timerReset()
 
-function timerReset(){
-    document.getElementById("countdown").reset();
-}
+//function timerReset(){
+   // document.getElementById("countdown").reset();
+//}
 
 //questions and answers- validatation
 function questionAnswer(){
@@ -102,7 +102,44 @@ function questionAnswer(){
         wrong++;
         text = "Wrong. The answer is Serena Williams";
     }
-    document.getElementById("quizbody").innerHTML = text;
+    document.getElementById("one").innerHTML = text;
+
+    if (userInput === "Court"){
+        correct++;
+        text = "Correct Answer";
+    } else {
+        wrong++;
+        text = "Wrong. The answer is Court";
+    }
+    document.getElementById("two").innerHTML = text;
+
+    if (userInput === "Australian Open"){
+        correct++;
+        text = "Correct Answer";
+    } else {
+        wrong++;
+        text = "Wrong. The answer is Australian Open";
+    }
+    document.getElementById("three").innerHTML = text;
+
+    if (userInput === "Queens"){
+        correct++;
+        text = "Correct Answer";
+    } else {
+        wrong++;
+        text = "Wrong. The answer is Queens";
+    }
+    document.getElementById("four").innerHTML = text;
+
+    if (userInput === "France, Lacoste shirt"){
+        correct++;
+        text = "Correct Answer";
+    } else {
+        wrong++;
+        text = "Wrong. The answer is France, Lacoste shirt";
+    }
+    document.getElementById("five").innerHTML = text;
+    }
     console.log(questionAnswer)
-}
+
 
