@@ -12,15 +12,11 @@
 //var userInput;
 var correct = 0;
 var wrong = 0
-var questionid = 1; //need to know where in sequence of question
-var timer;
-//Questions
-//var question = document.querySelectorAll()
-
-
+var questionid = 0; //need to know where in sequence of question
 
 var timerE1 = document.getElementById('count') 
 var mainE1 = document.getElementById('countdown')
+
 //var message = 'Time is up!';
 //var words = message.split(' ');
 
@@ -75,7 +71,7 @@ function displayMessage() {
     var msgInterval = setInterval(function () {
         if (words[wordCount] === undefined) {
             clearInterval(msgInterval);
-           mainE1.textContent = "Time is up - check your results"; //duplication of var message
+           mainE1.textContent = "Time is up - check your results"; 
         } else {
             mainE1.textContent = words[wordCount];
             wordCount++;
@@ -97,38 +93,39 @@ function questionAnswer(event){
     } else {
         wrong++;
     } 
-    if (questionid == 1) hideShow("one", "two")//after one is clicked, it jumps to second div
-
+    if (questionid == 0) hideShow("one", "two")}//after one is clicked, it jumps to second div
+    {
     if (userInput === "Court"){
         correct++;
     } else {
         wrong++;
     }
-    if (questionid == 2) hideShow("two", "three")
-
+    if (questionid == 1) hideShow("two", "three")}
+    {
     if (userInput === "Australian Open"){
         correct++;
     } else {
         wrong++;
     }
-    if (questionid == 3) hideShow("three", "four")
-
+    if (questionid == 2) hideShow("three", "four")}
+    {
     if (userInput === "Queens"){
         correct++;
     } else {
         wrong++;
     }
-    if (questionid == 4) hideShow("four", "five")
-
+    if (questionid == 3) hideShow("four", "five")}
+    {
     if (userInput === "France, Lacoste shirt"){
         correct++;
     } else {
         wrong++;
     }
-   
-    }
+    if (questionid == 4) hideShow("five", "six")
+    };
    
 // show the next div after a question is asnwered
+    //this function shows and hides the questions after a user answers
 function hideShow(currentid, nextid) {
     var currentContainer = document.getElementById(currentid);
     currentContainer.hidden = true;
@@ -136,5 +133,4 @@ function hideShow(currentid, nextid) {
     nextContainer.hidden = false;
     questionid++;
     console.log(questionid)
-    //this function shows and hides the questions after a user answers
 }
