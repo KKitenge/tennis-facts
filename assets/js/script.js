@@ -17,7 +17,7 @@ var questionid = 0; //need to know where in sequence of question
 
 var timerE1 = document.getElementById("count"); 
 var mainE1 = document.getElementById("countdown");
-var tennisQuiz = document.getElementById("tennisquiz");
+var tennisQuiz = document.getElementById("tennisQuiz");
 var endResult = document.getElementById("results");
 
 var tennisQ = [
@@ -102,7 +102,7 @@ function displayMessage() {
 
 //function to show questions
 function generateQuestion() {
-    tennisquiz.textContent = tennisQ[questionid].question;
+    tennisQuiz.textContent = tennisQ[questionid].question;
 } 
 
 function programStart() {
