@@ -97,16 +97,20 @@ function generateQuestion() {
     }
 }
 
+//Provides next question in line to be answered
 function nextQuestion(){
    tennisQuiz.textContent = tennisQ[questionid].question;
-   choice1.textContent = tennisQ[questionid].answers[0];
-  
-
+   firstChoice.textContent = tennisQ[questionid].answers[0];
+   secondChoice.textContent = tennisQ[questionid].answers[1];
+   thirdChoice.textContent = tennisQ[questionid].answers[2];
+   fourthChoice.textContent = tennisQ[questionid].answers[3];
+   fifthChoice.textContent = tennisQ[questionid].answers[4]; 
 }
 
 function programStart() {
     countDown();
     generateQuestion();
+    nextQuestion();
 }
 
 document.getElementById("startbtn").addEventListener("click", programStart)
