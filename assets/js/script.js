@@ -111,7 +111,7 @@ function nextQuestion(questionIndex){
 
 //Compare options
 function compareAnswer(CorrectA) {
-    //CorrectA = CorrectA.innerText
+    CorrectA = CorrectA.innerText
     if (questions[questionIndex].answer === questiions[questionIndex].options[correctA]) {
         correct++;
         questionIndex++;
