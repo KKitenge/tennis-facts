@@ -3,7 +3,7 @@ var correct = 0;
 var wrong = 0
 var scores;
 var time = 60
-var questionid = 0; //need to know where in sequence of question
+var questionIndex = 0; //need to know where in sequence of question
 var message = "Time is up!";
 var words = message.split(' ');
 var correctA;
@@ -20,7 +20,7 @@ var thirdChoice = document.getElementById("choice3");
 var fourthChoice = document.getElementById("choice4");
 var fifthChoice = document.getElementById("choice5");
 
-var tennisQ = [
+const questions = [
     {
         question:"This Legend, known as the GOAT, has won 23 Grand Slams.",
         options: ["Martina Navratilova", "Helen Wills Moody", "Serena Williams", "Steffi Graf", "Venus Williams"],
@@ -82,58 +82,50 @@ function displayMessage() {
 
 //function to show questions after start button is clicked
 function generateQuestion() {
-    tennisQuiz.textContent = tennisQ[questionid].question;
+    tennisQuiz.textContent = questions[questionIndex].question;
     document.getElementById("mainQuiz-container").removeAttribute("hidden");
     let quizbody = document.createElement("div");
-    //quizbody.classList.add("quizbody");
+    quizbody.classList.add("quizbody");
 
     let question = document.createElement("p");
-    //question.classList.add("question");
-    question.innerHTML = tennisQ[questionid].question;
+    question.classList.add("question");
+    question.innerHTML = questions[questionIndex].question;
     quizbody.appendChild(question);
 
-    for (let x = 0; x < tennisQ[questionid].options.length; x++) {
-        console.log(tennisQ[questionid].options[x])
-        quizbody.innerHTML += `<button id="question-option" class="option-div" onclick="checkAnswer(this)">${tennisQ[questionid].options[x]}</button>`;  
+    for (let x = 0; x < questions[questionIndex].options.length; x++) {
+        console.log(questions[questionIndex].options[x])
+        quizbody.innerHTML += `<button id="question-option" class="option-div" onclick="checkAnswer(this)">${questions[questionIndex].options[x]}</button>`;  
     }
     quizContainer.appendChild(quizbody);
 };
 
 //Provides next question in line to be answered
-function nextQuestion(){
-   tennisQuiz.textContent = tennisQ[questionid].question;
-   firstChoice.textContent = tennisQ[questionid].options[0];
-   secondChoice.textContent = tennisQ[questionid].options[1];
-   thirdChoice.textContent = tennisQ[questionid].options[2];
-   fourthChoice.textContent = tennisQ[questionid].options[3];
-   fifthChoice.textContent = tennisQ[questionid].options[4]; 
-};
-
-function nextQuestion(questionid) {
-    var quizbody = document.querySelectorAll("quizbody");
-    quizbody.forEach((card) => {
-        //card.classList.add("hide");
-    });
-    //quizbody[questionid].classList.remove("hide");
+function nextQuestion(questionIndex){
+    tennisQuiz.textContent = questions[questionIndex].question;
+    firstChoice.textContent = questions[questionIndex].options[0];
+    secondChoice.textContent = questions[questionIndex].options[1];
+    thirdChoice.textContent = questions[questionIndex].options[2];
+    fourthChoice.textContent = questions[questionIndex].options[3];
+    fifthChoice.textContent = questions[questionIndex].options[4]; 
 };
 
 //Compare options
 function compareAnswer(CorrectA) {
     //CorrectA = CorrectA.innerText
-    if (tennisQ[questionid].answer === tennisQ[questionid].options[correctA]) {
+    if (questions[questionIndex].answer === questiions[questionIndex].options[correctA]) {
         correct++;
-        questionid++;
+        questionIndex++;
     } else {
         time -= 5; // removes 5 seconds from countdown due to wrong answer
     }
-    questionid++;
-    if (questionid == tennisQ.length) {
-        //quizContainer.classList.add("hide")
-        //finalScores.classList.remove("hide")
+    questionIndex++;
+    if (questionIndex == questions.length) {
+        quizContainer.classList.add("hide")
+        finalScores.classList.remove("hide")
         clearInterval(timeLeft);
         displayScore()
     } else {
-        nextQuestion(questionid);
+        nextQuestion(questionIndex);
     }
 };
 
