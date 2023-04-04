@@ -71,13 +71,13 @@ var tennisQ = [
 //timer countdown from 60 seconds
 function countDown(){
     var timeLeft = 60;
-    var downloadTimer = setInterval(function function1() {
-    //var timeInterval = setInterval(function () {
+    //var downloadTimer = setInterval(function function1() {
+    var timeInterval = setInterval(function () {
         if (timeLeft > 1) {//if time left is greater than 1
             timerE1.textContent = timeLeft + " seconds remaining" //shows the time remaining
             timeLeft--; //decreates time by 1
             } else if (timeLeft === 1) { //if time left is equal to 1 shows second instead of seaconds
-           timerE1.textContent = timeLeft + " second remaining";
+            timerE1.textContent = timeLeft + " second remaining";
             timeLeft--;
             } else {
             timerE1.textContent = "Time is up - check your results"; 
