@@ -1,14 +1,3 @@
-//Objective
-    //Timed quiz
-    //Start button starts the timer countdown
-    //Start button shows series of questions
-    //When question is answered result of user choice is presented
-        //If answer is correct, positive affirmation is given and next question in line is presented
-        //If answer is incorrect, negative confirmation is given, next question is presented with 5 seconds removed from timer countdown
-    //The game is over when all questions are answered or when the timer countdown is 0
-    //When the game is over, final results are shown to the player
-
-
 //var userInput;
 var correct = 0;
 var wrong = 0
@@ -21,14 +10,19 @@ var timerE1 = document.getElementById("count");
 var mainE1 = document.getElementById("countdown");
 var tennisQuiz = document.getElementById("tennisQuiz");
 var endResult = document.getElementById("results");
+var firstChoice = document.getElementById("choice1");
+var secondChoice = document.getElementById("choice2");
+var thirdChoice = document.getElementById("choice3");
+var fourthChoice = document.getElementById("choice4");
+var fifthChoice = document.getElementById("choice5");
 
 var tennisQ = [
     {
         question:"This Legend, known as the GOAT, has won 23 Grand Slams.",
         answer1: "Martina Navratilova",
-        answer2: "Steffi Graf",
+        answer2: "Helen Wills Moody",
         answer3: "Serena Williams",
-        answer4: "Helen Wills Moody",
+        answer4: "Steffi Graf",
         answer5: "Venus Williams",
         correctA: "Serena Williams"
     },
@@ -36,8 +30,8 @@ var tennisQ = [
         question:"Tennis is played on this type of surface:",
         answer1: "Pitch",
         answer2: "Court",
-        answer3: "Field",
-        answer4: "Track",
+        answer3: "Track",
+        answer4: "Field",
         answer5: "Course",
         correctA: "Court"  
     },
@@ -107,6 +101,12 @@ function generateQuestion() {
     tennisQuiz.textContent = tennisQ[questionid].question;
     document.getElementById("mainQuiz").removeAttribute("hidden");
 } 
+
+function nextQuestion(){
+   tennisQuiz.textContent = tennisQ[questionid].question;
+   choice1.textContent = tennisQ[questionid].answers[0];
+
+}
 
 function programStart() {
     countDown();
