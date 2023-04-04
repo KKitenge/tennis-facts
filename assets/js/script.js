@@ -2,6 +2,7 @@
 var correct = 0;
 var wrong = 0
 var result;
+var time;
 var questionid = 0; //need to know where in sequence of question
 var message = "Time is up!";
 var words = message.split(' ');
@@ -11,6 +12,7 @@ var mainE1 = document.getElementById("countdown");
 var tennisQuiz = document.getElementById("tennisQuiz");
 var quizContainer = document.getElementById("mainQuiz-container")
 var endResult = document.getElementById("results");
+var finalScores = document.getElementById("highLowScores")
 var firstChoice = document.getElementById("choice1");
 var secondChoice = document.getElementById("choice2");
 var thirdChoice = document.getElementById("choice3");
@@ -62,7 +64,7 @@ function countDown(){
             displayMessage();
         }
     }, 1000);
-}
+};
 
 function displayMessage() {
     var wordCount = 0;
@@ -75,7 +77,7 @@ function displayMessage() {
             wordCount++;
         }
     }, 1000);
-}
+};
 
 //function to show questions after start button is clicked
 function generateQuestion() {
@@ -91,11 +93,10 @@ function generateQuestion() {
 
     for (let x = 0; x < tennisQ[questionid].answers.length; x++) {
         console.log(tennisQ[questionid].answers[x])
-        quizbody.innerHTML += `<button id="question-option" class="option-div" onclick="checkAnswer(this)">${tennisQ[questionid].answers[x]}</button>`;
-        
+        quizbody.innerHTML += `<button id="question-option" class="option-div" onclick="checkAnswer(this)">${tennisQ[questionid].answers[x]}</button>`;  
     }
     quizContainer.appendChild(quizbody);
-}
+};
 
 //Provides next question in line to be answered
 function nextQuestion(){
@@ -105,13 +106,42 @@ function nextQuestion(){
    thirdChoice.textContent = tennisQ[questionid].answers[2];
    fourthChoice.textContent = tennisQ[questionid].answers[3];
    fifthChoice.textContent = tennisQ[questionid].answers[4]; 
-}
+};
+
+//Compare answers
+function compareAnswer(clicked) {
+    //clicked = clicked.innerText
+    if (tennisQ[questionid].answer === tennisQ[questionid].answers[correctA]) {
+        correct++;
+    } else {
+        time -= 5; // removes 5 seconds from countdown due to wrong answer
+    }
+    questionid++;
+    if (questionid == questions.length) {
+        quizContainer.classList.add("hide")
+        finalScores.classList.remove("hide")
+        clearInterval(timeLeft);
+        displayScore()
+    } else {
+        nextQuestion(questionid);
+    }
+};
+
+window.onload=() => {
+    let scoresFromStorage=JSON.parse(localStorage.getItem("scores"))
+    if (scoresFromStorage) {
+        scores = scoresFromStorage
+    } else {
+        scores = []
+    }
+};
 
 function programStart() {
     countDown();
     generateQuestion();
     //nextQuestion();
-}
+    compareAnswer();
+};
 
 document.getElementById("startbtn").addEventListener("click", programStart)
 
