@@ -24,7 +24,7 @@ var endResult = document.getElementById("results");
 
 var tennisQ = [
     {
-        question1:"This Legend, known as the GOAT, has won 23 Grand Slams.",
+        question:"This Legend, known as the GOAT, has won 23 Grand Slams.",
         answer1: "Martina Navratilova",
         answer2: "Steffi Graf",
         answer3: "Serena Williams",
@@ -33,7 +33,7 @@ var tennisQ = [
         correctA: "Serena Williams"
     },
     {
-        question2:"Tennis is played on this type of surface:",
+        question:"Tennis is played on this type of surface:",
         answer1: "Pitch",
         answer2: "Court",
         answer3: "Field",
@@ -42,7 +42,7 @@ var tennisQ = [
         correctA: "Court"  
     },
     {
-        question3:"This tournament is known as the Happy Slam:",
+        question:"This tournament is known as the Happy Slam:",
         answer1: "Australian Open",
         answer2: "French Open",
         answer3: "Wimbledon",
@@ -51,7 +51,7 @@ var tennisQ = [
         correctA: "Australian Open"  
     },
     {
-        question4:"Where does the US Open take place in New York:",
+        question:"Where does the US Open take place in New York:",
         answer1: "Brooklyn",
         answer2: "The Bronx",
         answer3: "Queens",
@@ -60,7 +60,7 @@ var tennisQ = [
         correctA: "Queens"  
     },
     {
-        question5:"Rene Lacoste, played for this country and was known for:",
+        question:"Rene Lacoste, played for this country and was known for:",
         answer1: "England, Nickname the Crocodile",
         answer2: "France, Lacoste shirt",
         answer3: "United States, Nickname the Rocket",
