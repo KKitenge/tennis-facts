@@ -2,7 +2,7 @@
 var correct = 0;
 var wrong = 0
 var scores;
-var time = 60
+var time = 60;
 var questionIndex = 0; //need to know where in sequence of question
 var message = "Time is up!";
 var words = message.split(' ');
@@ -50,7 +50,7 @@ const questions = [
 
 //timer countdown from 60 seconds
 function countDown(){
-    var timeLeft = 15;
+    var timeLeft = 60;
     //var downloadTimer = setInterval(function function1() {
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {//if time left is greater than 1
@@ -94,25 +94,38 @@ function generateQuestion() {
 
     for (let x = 0; x < questions[questionIndex].options.length; x++) {
         console.log(questions[questionIndex].options[x])
-        quizbody.innerHTML += `<button id="question-option" class="option-div" onclick="checkAnswer(this)">${questions[questionIndex].options[x]}</button>`;  
+        quizbody.innerHTML += `<button id="question-option" class="option-div" onclick="compareAnswer(this)">${questions[questionIndex].options[x]}</button>`;
     }
     quizContainer.appendChild(quizbody);
 };
 
 //Provides next question in line to be answered
-function nextQuestion(questionIndex){
-    tennisQuiz.textContent = questions[questionIndex].question;
-    firstChoice.textContent = questions[questionIndex].options[0];
-    secondChoice.textContent = questions[questionIndex].options[1];
-    thirdChoice.textContent = questions[questionIndex].options[2];
-    fourthChoice.textContent = questions[questionIndex].options[3];
-    fifthChoice.textContent = questions[questionIndex].options[4]; 
+function nextQuestion(questionIndex) {
+    // Remove existing quiz body
+    const existingQuizBody = document.querySelector(".quizbody");
+    if (existingQuizBody) {
+        existingQuizBody.remove();
+    }
+
+    let quizbody = document.createElement("div");
+    quizbody.classList.add("quizbody");
+
+    let question = document.createElement("p");
+    question.classList.add("question");
+    question.innerHTML = questions[questionIndex].question;
+    quizbody.appendChild(question);
+
+    for (let x = 0; x < questions[questionIndex].options.length; x++) {
+        console.log(questions[questionIndex].options[x])
+        quizbody.innerHTML += `<button id="question-option" class="option-div" onclick="compareAnswer(this)">${questions[questionIndex].options[x]}</button>`;
+    }
+    quizContainer.appendChild(quizbody);
 };
 
 //Compare options
 function compareAnswer(CorrectA) {
     CorrectA = CorrectA.innerText
-    if (questions[questionIndex].answer === questiions[questionIndex].options[correctA]) {
+    if (CorrectA === questions[questionIndex].correctA) {
         correct++;
         questionIndex++;
     } else {
@@ -143,7 +156,7 @@ function programStart() {
     countDown();
     generateQuestion();
     //nextQuestion();
-    compareAnswer();
+    //compareAnswer();
 };
 
 document.getElementById("startbtn").addEventListener("click", programStart)
