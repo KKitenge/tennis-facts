@@ -12,10 +12,14 @@
 //var userInput;
 var correct = 0;
 var wrong = 0
-//var questionid = 0; //need to know where in sequence of question
+var result;
+var questionid = 0; //need to know where in sequence of question
 
-var timerE1 = document.getElementById('count') 
-var mainE1 = document.getElementById('countdown')
+var timerE1 = document.getElementById("count"); 
+var mainE1 = document.getElementById("countdown");
+var tennisQuiz = document.getElementById("tennisquiz");
+var endResult = document.getElementById("results");
+
 var tennisQ = [
     {
         question1:"This Legend, known as the GOAT, has won 23 Grand Slams.",
@@ -64,39 +68,10 @@ var tennisQ = [
     }
 ];
 
-//var message = 'Time is up!';
-//var words = message.split(' ');
-
-//Start button to begin the game
-//document.getElementById("startbtn").addEventListener("click", function() {
-    //var timeLeft = 60;
-    //var downloadTimer = setInterval(function function1() {
-       // document.getElementById("countdown").innerHTML = timeLeft;
-
-       // timeLeft -=1;
-       // if(timeLeft <= 0){
-           // clearInterval(downloadTimer);
-           // document.getElementById("countdown").innerHTML;
-       // }
-       // }, 1000);
-
-       // console.log(countDown);
-//});
-
 //timer countdown from 60 seconds
 function countDown(){
     var timeLeft = 60;
     var downloadTimer = setInterval(function function1() {
-        // document.getElementById("count").innerHTML = timeLeft;
-
-        // timeLeft -=1;
-        // if(timeLeft <= 0){
-        //     clearInterval(downloadTimer);
-        //     document.getElementById("count").innerHTML;
-        // }
-        // }, 1000);
-
-    //setInterval used to call function to be executed every 1000 milliseconds
     //var timeInterval = setInterval(function () {
         if (timeLeft > 1) {//if time left is greater than 1
             timerE1.textContent = timeLeft + " seconds remaining" //shows the time remaining
@@ -124,75 +99,15 @@ function displayMessage() {
         }
     }, 1000);
 }
+
+//function to show questions
+function generateQuestion() {
+    tennisquiz.textContent = tennisQ[questionid].question;
+} 
+
 function programStart() {
     countDown();
     generateQuestion();
 }
+
 document.getElementById("startbtn").addEventListener("click", programStart)
-//countDown();
-
-//function timerReset(){
-   // document.getElementById("countdown").reset();
-//}
-
-//questions and answers- validatation
-// function questionAnswer(event){
-//     var userInput = event.target.value;
-//     console.log(userInput);
-//     console.log(event);
-//     if (userInput === "Serena Williams"){
-//         correct++;
-//         document.getElementById("one").style.display = "none";
-//         document.getElementById("two").style.display = "block";
-//     } else {
-//         wrong++;
-//         document.getElementById("one").style.display = "none";
-//         document.getElementById("two").style.display = "block";
-//     }  
-//     if (userInput === "Court"){
-//         correct++;
-// 	  document.getElementById("two").style.display = "none";
-//         document.getElementById("three").style.display = "block";
-//     } else {
-//         wrong++;
-// 	  document.getElementById("two").style.display = "none";
-//         document.getElementById("three").style.display = "block";
-//     }
-//      if (userInput === "Australian Open"){
-//         correct++;
-//         document.getElementById("three").style.display = "none";
-//         document.getElementById("four").style.display = "block";
-//      } else {
-//         wrong++;
-//         document.getElementById("three").style.display = "none";
-//         document.getElementById("four").style.display = "block";
-//     }
-//      if (userInput === "Queens"){
-//         correct++;
-//         document.getElementById("four").style.display = "none";
-//         document.getElementById("five").style.display = "block";
-//     } else {
-//         wrong++;
-//         document.getElementById("four").style.display = "none";
-//         document.getElementById("five").style.display = "block";
-//     }
-//      if (userInput === "France, Lacoste shirt"){
-//         correct++;
-//         document.getElementById("five").style.display = "none";
-//         document.getElementById("six").style.display = "block";
-//     } else {
-//         wrong++;
-//         document.getElementById("five").style.display = "none";
-//         document.getElementById("six").style.display = "block" ; 
-// }}
-   
-// show the next div after a question is asnwered
-    //this function shows and hides the questions after a user answers
-//function hideShow(currentid, nextid) {
-    //var currentContainer = document.getElementById(currentid);
-   // currentContainer.hidden = true;
-    //var nextContainer = document.getElementById(nextid);
-    //nextContainer.hidden = false;
-    //questionid++;
-    //console.log(questionid);
-//}
