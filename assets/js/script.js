@@ -77,9 +77,9 @@ function displayMessage() {
     }, 1000);
 }
 
-//function to show questions
+//function to show questions after start button is clicked
 function generateQuestion() {
-    tennisQuiz.textContent = tennisQ[questionid].question;
+   // tennisQuiz.textContent = tennisQ[questionid].question; removed as it was causing duplicate question/answer on first question
     document.getElementById("mainQuiz-container").removeAttribute("hidden");
     let quizbody = document.createElement("div");
     quizbody.classList.add("quizbody");
@@ -110,7 +110,7 @@ function nextQuestion(){
 function programStart() {
     countDown();
     generateQuestion();
-    nextQuestion();
+    //nextQuestion();
 }
 
 document.getElementById("startbtn").addEventListener("click", programStart)
