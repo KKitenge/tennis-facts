@@ -81,20 +81,20 @@ function displayMessage() {
 function generateQuestion() {
     tennisQuiz.textContent = tennisQ[questionid].question;
     document.getElementById("mainQuiz-container").removeAttribute("hidden");
-    for (let i of tennisQ) {
-        let quizbody = document.createElement("div");
-        quizbody.classList.add("quizbody");
+    let quizbody = document.createElement("div");
+    quizbody.classList.add("quizbody");
 
-        let question = document.createElement("p");
-        question.classList.add("question");
-        question.innerHTML = i.question;
-        quizbody.appendChild(question);
+    let question = document.createElement("p");
+    question.classList.add("question");
+    question.innerHTML = tennisQ[questionid].question;
+    quizbody.appendChild(question);
 
-        for (let x = 0; x < i.answers.length; x++) {
-            quizbody.innerHTML += `<button id="question-option" class="option-div" onclick="checkAnswer(this)">${i.answers[x]}</button>`;
-        }
-        quizContainer.appendChild(quizbody);
+    for (let x = 0; x < tennisQ[questionid].answers.length; x++) {
+        console.log(tennisQ[questionid].answers[x])
+        quizbody.innerHTML += `<button id="question-option" class="option-div" onclick="checkAnswer(this)">${tennisQ[questionid].answers[x]}</button>`;
+        
     }
+    quizContainer.appendChild(quizbody);
 }
 
 //Provides next question in line to be answered
