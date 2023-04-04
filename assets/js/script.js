@@ -105,6 +105,7 @@ function displayMessage() {
 //function to show questions
 function generateQuestion() {
     tennisQuiz.textContent = tennisQ[questionid].question;
+    document.getElementById("mainQuiz").removeAttribute("hidden");
 } 
 
 function programStart() {
