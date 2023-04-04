@@ -1,25 +1,24 @@
-# tennis-facts
+# Tennis Quiz
 
-## User Story
+## Description
+A short quiz with the aim to have a player presented with a set of multiple choice questions. Once one set is answered, the next question in the queue appears until the questions are all answered or time has run out. Incorrect answers are to be counted in the wrong column as well as have time deducted from the stop watch. Correct answers are to be added to the correct column and have no effect on time. The game is to end if the time runs out or the questions are all answered before then.
 
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
+## Status
 
-```
+This project did not cross all the marks. The player is able to complete the quiz in the allotted time, however there were issues in retaining score information and displaying that at the end of the game.
 
-## Acceptance Criteria
-```
 
-* GIVEN I am taking a code quiz
-* WHEN I click the start button
-* THEN a timer starts and I am presented with a question
-* HEN I answer a question
-* THEN I am presented with another question
-* WHEN I answer a question incorrectly
-* THEN time is subtracted from the clock
-* WHEN all questions are answered or the timer reaches 0
-* THEN the game is over
-* WHEN the game is over
-* THEN I can save my initials and my score
+## Usage
+Access the live site at [Live Link](https://kkitenge.github.io/tennis-facts/) and proceed with the game.
+
+
+## Credit
+
+* Assitance from @AskBCS Learning Assitant and in class TA.
+* [W3Schools.com](https://www.w3schools.com)
+* [Visual Studio Code](https://code.visualstudio.com)
+* [GitHub](https://github.com)
+
+## License
+
+Copyright - TA, AskBCS support who got this quiz this far.
