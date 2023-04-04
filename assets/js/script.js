@@ -14,6 +14,8 @@ var correct = 0;
 var wrong = 0
 var result;
 var questionid = 0; //need to know where in sequence of question
+var message = "Time is up!";
+var words = message.split(' ');
 
 var timerE1 = document.getElementById("count"); 
 var mainE1 = document.getElementById("countdown");
@@ -70,7 +72,7 @@ var tennisQ = [
 
 //timer countdown from 60 seconds
 function countDown(){
-    var timeLeft = 60;
+    var timeLeft = 15;
     //var downloadTimer = setInterval(function function1() {
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {//if time left is greater than 1
@@ -80,7 +82,7 @@ function countDown(){
             timerE1.textContent = timeLeft + " second remaining";
             timeLeft--;
             } else {
-            timerE1.textContent = "Time is up - check your results"; 
+            timerE1.textContent = " "; 
             clearInterval(timeInterval);
             displayMessage();
         }
