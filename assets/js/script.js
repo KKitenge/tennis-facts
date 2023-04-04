@@ -19,47 +19,27 @@ var fifthChoice = document.getElementById("choice5");
 var tennisQ = [
     {
         question:"This Legend, known as the GOAT, has won 23 Grand Slams.",
-        answer1: "Martina Navratilova",
-        answer2: "Helen Wills Moody",
-        answer3: "Serena Williams",
-        answer4: "Steffi Graf",
-        answer5: "Venus Williams",
+        answers: ["Martina Navratilova", "Helen Wills Moody", "Serena Williams", "Steffi Graf", "Venus Williams"]
         correctA: "Serena Williams"
     },
     {
         question:"Tennis is played on this type of surface:",
-        answer1: "Pitch",
-        answer2: "Court",
-        answer3: "Track",
-        answer4: "Field",
-        answer5: "Course",
+        answers: ["Pitch", "Court", "Track", "Field", "Course"]
         correctA: "Court"  
     },
     {
         question:"This tournament is known as the Happy Slam:",
-        answer1: "Australian Open",
-        answer2: "French Open",
-        answer3: "Wimbledon",
-        answer4: "US Open",
-        answer5: "Miami",
+        answers: ["Australian Open","French Open", "Wimbledon", "US Open", "Miami"]
         correctA: "Australian Open"  
     },
     {
         question:"Where does the US Open take place in New York:",
-        answer1: "Brooklyn",
-        answer2: "The Bronx",
-        answer3: "Queens",
-        answer4: "Manhattan",
-        answer5: "Staten Island",
+        answers: ["Brooklyn", "The Bronx", "Queens", "Manhattan", "Staten Island"]
         correctA: "Queens"  
     },
     {
         question:"Rene Lacoste, played for this country and was known for:",
-        answer1: "England, Nickname the Crocodile",
-        answer2: "France, Lacoste shirt",
-        answer3: "United States, Nickname the Rocket",
-        answer4: "Germany, winning the Grand Slam",
-        answer5: "Spain, the longest rank #1 period",
+        answers: ["England, Nickname the Crocodile", "France, Lacoste shirt", "United States, Nickname the Rocket", "Germany, winning the Grand Slam", "Spain, the longest rank #1 period"] 
         correctA: "QFrance, Lacoste shirt" 
     }
 ];
@@ -99,12 +79,15 @@ function displayMessage() {
 //function to show questions
 function generateQuestion() {
     tennisQuiz.textContent = tennisQ[questionid].question;
-    document.getElementById("mainQuiz").removeAttribute("hidden");
-} 
+    document.getElementById("mainQuiz-container").removeAttribute("hidden");
+   
+    }
+}
 
 function nextQuestion(){
    tennisQuiz.textContent = tennisQ[questionid].question;
    choice1.textContent = tennisQ[questionid].answers[0];
+  
 
 }
 
@@ -114,3 +97,4 @@ function programStart() {
 }
 
 document.getElementById("startbtn").addEventListener("click", programStart)
+
