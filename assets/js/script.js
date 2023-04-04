@@ -1,11 +1,12 @@
 //var userInput;
 var correct = 0;
 var wrong = 0
-var result;
-var time;
+var scores;
+var time = 60
 var questionid = 0; //need to know where in sequence of question
 var message = "Time is up!";
 var words = message.split(' ');
+var correctA;
 
 var timerE1 = document.getElementById("count"); 
 var mainE1 = document.getElementById("countdown");
@@ -22,27 +23,27 @@ var fifthChoice = document.getElementById("choice5");
 var tennisQ = [
     {
         question:"This Legend, known as the GOAT, has won 23 Grand Slams.",
-        answers: ["Martina Navratilova", "Helen Wills Moody", "Serena Williams", "Steffi Graf", "Venus Williams"],
+        options: ["Martina Navratilova", "Helen Wills Moody", "Serena Williams", "Steffi Graf", "Venus Williams"],
         correctA: "Serena Williams"
     },
     {
         question:"Tennis is played on this type of surface:",
-        answers: ["Pitch", "Court", "Track", "Field", "Course"],
+        options: ["Pitch", "Court", "Track", "Field", "Course"],
         correctA: "Court"  
     },
     {
         question:"This tournament is known as the Happy Slam:",
-        answers: ["Australian Open","French Open", "Wimbledon", "US Open", "Miami"],
+        options: ["Australian Open","French Open", "Wimbledon", "US Open", "Miami"],
         correctA: "Australian Open"  
     },
     {
         question:"Where does the US Open take place in New York:",
-        answers: ["Brooklyn", "The Bronx", "Queens", "Manhattan", "Staten Island"],
+        options: ["Brooklyn", "The Bronx", "Queens", "Manhattan", "Staten Island"],
         correctA: "Queens"  
     },
     {
         question:"Rene Lacoste, played for this country and was known for:",
-        answers: ["England, Nickname the Crocodile", "France, Lacoste shirt", "United States, Nickname the Rocket", "Germany, winning the Grand Slam", "Spain, the longest rank #1 period"],
+        options: ["England, Nickname the Crocodile", "France, Lacoste shirt", "United States, Nickname the Rocket", "Germany, winning the Grand Slam", "Spain, the longest rank #1 period"],
         correctA: "QFrance, Lacoste shirt" 
     }
 ];
@@ -71,7 +72,7 @@ function displayMessage() {
     var msgInterval = setInterval(function () {
         if (words[wordCount] === undefined) {
             clearInterval(msgInterval);
-           mainE1.textContent = "Time is up - check your results"; 
+           mainE1.textContent = message; 
         } else {
             mainE1.textContent = words[wordCount];
             wordCount++;
@@ -81,19 +82,19 @@ function displayMessage() {
 
 //function to show questions after start button is clicked
 function generateQuestion() {
-   // tennisQuiz.textContent = tennisQ[questionid].question; removed as it was causing duplicate question/answer on first question
+    tennisQuiz.textContent = tennisQ[questionid].question;
     document.getElementById("mainQuiz-container").removeAttribute("hidden");
     let quizbody = document.createElement("div");
-    quizbody.classList.add("quizbody");
+    //quizbody.classList.add("quizbody");
 
     let question = document.createElement("p");
-    question.classList.add("question");
+    //question.classList.add("question");
     question.innerHTML = tennisQ[questionid].question;
     quizbody.appendChild(question);
 
-    for (let x = 0; x < tennisQ[questionid].answers.length; x++) {
-        console.log(tennisQ[questionid].answers[x])
-        quizbody.innerHTML += `<button id="question-option" class="option-div" onclick="checkAnswer(this)">${tennisQ[questionid].answers[x]}</button>`;  
+    for (let x = 0; x < tennisQ[questionid].options.length; x++) {
+        console.log(tennisQ[questionid].options[x])
+        quizbody.innerHTML += `<button id="question-option" class="option-div" onclick="checkAnswer(this)">${tennisQ[questionid].options[x]}</button>`;  
     }
     quizContainer.appendChild(quizbody);
 };
@@ -101,31 +102,41 @@ function generateQuestion() {
 //Provides next question in line to be answered
 function nextQuestion(){
    tennisQuiz.textContent = tennisQ[questionid].question;
-   firstChoice.textContent = tennisQ[questionid].answers[0];
-   secondChoice.textContent = tennisQ[questionid].answers[1];
-   thirdChoice.textContent = tennisQ[questionid].answers[2];
-   fourthChoice.textContent = tennisQ[questionid].answers[3];
-   fifthChoice.textContent = tennisQ[questionid].answers[4]; 
+   firstChoice.textContent = tennisQ[questionid].options[0];
+   secondChoice.textContent = tennisQ[questionid].options[1];
+   thirdChoice.textContent = tennisQ[questionid].options[2];
+   fourthChoice.textContent = tennisQ[questionid].options[3];
+   fifthChoice.textContent = tennisQ[questionid].options[4]; 
 };
 
-//Compare answers
-function compareAnswer(clicked) {
-    //clicked = clicked.innerText
-    if (tennisQ[questionid].answer === tennisQ[questionid].answers[correctA]) {
+function nextQuestion(questionid) {
+    var quizbody = document.querySelectorAll("quizbody");
+    quizbody.forEach((card) => {
+        //card.classList.add("hide");
+    });
+    //quizbody[questionid].classList.remove("hide");
+};
+
+//Compare options
+function compareAnswer(CorrectA) {
+    //CorrectA = CorrectA.innerText
+    if (tennisQ[questionid].answer === tennisQ[questionid].options[correctA]) {
         correct++;
+        questionid++;
     } else {
         time -= 5; // removes 5 seconds from countdown due to wrong answer
     }
     questionid++;
-    if (questionid == questions.length) {
-        quizContainer.classList.add("hide")
-        finalScores.classList.remove("hide")
+    if (questionid == tennisQ.length) {
+        //quizContainer.classList.add("hide")
+        //finalScores.classList.remove("hide")
         clearInterval(timeLeft);
         displayScore()
     } else {
         nextQuestion(questionid);
     }
 };
+
 
 window.onload=() => {
     let scoresFromStorage=JSON.parse(localStorage.getItem("scores"))

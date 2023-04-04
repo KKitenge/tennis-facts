@@ -57,7 +57,7 @@ button {
     padding: 10px;
 }
 
-#quizbody { 
+.quizbody { 
     appearance: none;
     display: block;
     justify-content: center;
