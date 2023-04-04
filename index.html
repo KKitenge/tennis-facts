@@ -21,10 +21,11 @@
             <p id="countdown"></p>
         </div>
         
+        <!-- Game Start -->
     <section class="quizbox">
         <div id="quizbody"> 
             <form name="tennisquiz">
-            <div id="mainQuiz" hidden>
+            <div id="mainQuiz container" hidden>
                 <h5 id="tennisQuiz"></h5>
                 <ul style="list-style-type:none;">
                 <li id="choice1"><input type="button"></button></li>
@@ -34,14 +35,16 @@
                 <li id="choice5"><input type="button"></li></ul>
             </div>
             
-            <!-- <div id="6" hidden>
-                    <div class="input-initials">
-                    <p id="results">Your Quiz Results </p>
-                      <label for="initials">Enter your initials</label>
-                      <input type="submit" name="initials" id="initials"></submit>
-                    </div>
-                    <div id="msg"></div>
-                    <button id="add">Add</button> -->
+            <!-- Results -->
+            <div id="finalScores" hidden>
+                <h1>Game Over</h1>
+                <span id="finalscore" class="finScore"></span>
+                <input id="score-input" type="text" placeholder="Add your initials">
+                <button id="submit-button">Submit</button>
+            </div>
+            <div id="highLowScores" hidden>
+                <h1>High & Low Scores</h1>
+                <div id="scorelist" class="scores-list">
                 </div>
             </form>
         </div>
