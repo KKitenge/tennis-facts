@@ -124,7 +124,7 @@ function nextQuestion(questionIndex) {
 
 //Compare options
 function compareAnswer(CorrectA) {
-    CorrectA = CorrectA.innerText
+    //CorrectA = CorrectA.innerText
     if (CorrectA === questions[questionIndex].correctA) {
         correct++;
         questionIndex++;
